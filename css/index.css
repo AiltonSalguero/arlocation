@@ -1,0 +1,14 @@
+body {
+    background: url('https://images.adsttc.com/media/images/5865/981e/e58e/ce52/2a00/01aa/medium_jpg/LA_TORRE_DE_GAMARRA_01.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+  .btn-primary {
+    background-color: #a328ff !important; 
+    border-color: #4e1977;
+    color: #fff !important;
+    border-radius: 24px!important;
+}

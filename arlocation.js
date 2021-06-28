@@ -5,5 +5,10 @@ AFRAME.registerComponent("foo", {
             console.log("click");
             window.location.href = "./store_detail.html";
         })
+        this.el.addEventListener("touchstart", () => {
+            console.log(e);
+            console.log("click");
+            window.location.href = "./store_detail.html";
+        });
     }
 })

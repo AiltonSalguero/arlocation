@@ -11,4 +11,6 @@ body {
     border-color: #4e1977;
     color: #fff !important;
     border-radius: 24px!important;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }

@@ -1,4 +1,4 @@
-const MAX_DISTANT = 5
+const MAX_DISTANT = 50
 var stores_data = [
     {
         "id": 1,
@@ -113,6 +113,12 @@ var stores_data = [
         "longitude": -77.0803832
     }
 ];
+function to_store_detail(evt) {
+    evt.preventDefault()
+    console.log(evt);
+    console.log("click");
+    window.location.href = "./store_detail.html";
+}
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -129,12 +135,24 @@ function getLocation() {
                 zoom: 15,
                 center: current_location,
             });
+            /*
+            map.addListener("center_changed", () => {
+                // 3 seconds after the center of the map has changed, pan back to the
+                // marker.
+                window.setTimeout(() => {
+                  map.panTo(marker.getPosition());
+                }, 3000);
+              });
+            */
             var near_stores = get_near_stores(stores_data, current_location.lat, current_location.lng, MAX_DISTANT)
             for (const store of near_stores) {
                 var marker = new google.maps.Marker({
                     position: { lat: store.latitude, lng: store.longitude },
                     map: map,
                 });
+               
+                  marker.addEventListener('touchstart', to_store_detail)
+                  markeraddEventListener('click', to_store_detail)
         
             }
         });

@@ -1,5 +1,14 @@
-const MAX_DISTANT = 5
+const MAX_DISTANT = 50
+function findStoreById(propValue) {
+    var stores_data_json = localStorage.getItem('stores_data')
+    var stores_data = JSON.parse(stores_data_json)
 
+    for (var i=0; i < stores_data.length; i++)
+      if (stores_data[i].direccionId == propValue)
+        return stores_data[i];
+  
+    // will return undefined if not found; you could return a default instead
+  }
 function to_store_detail(store_detail) {
     console.log(store_detail);
     console.log("click1");
@@ -11,6 +20,7 @@ function to_store_detail(store_detail) {
 AFRAME.registerComponent("foo", {
     init: function () {
         console.log(this);
+        var store = findStoreById(this.el.id)
         this.el.addEventListener('touchstart', function () {
             to_store_detail(store);
         }, false);
@@ -123,8 +133,8 @@ function create_store_card(store) {
     var store_card = document.createElement('a-entity');
     store_card.setAttribute('id', store.direccionId);
     store_card.setAttribute('gps-entity-place', 'latitude: -12.0751071; longitude: -77.0803832;');
-    store_card.setAttribute(store_card)
-    store_card.setAttribute(foo)
+    store_card.setAttribute('store_card',"");
+    store_card.setAttribute('foo',"");
     return store_card;
 }
 

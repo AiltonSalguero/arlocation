@@ -1,122 +1,9 @@
-const MAX_DISTANT = 50
-var stores_data = [
-    {
-        "id": 1,
-        "name": "Victors Nombre Comercial",
-        "adress": "Av. Agustin Gamarra 140",
-        "latitude": -12.0641762,
-        "longitude": -77.1525624
-    },
-    {
-        "id": 2,
-        "name": "Kayser",
-        "adress": "Av Agustin Gamarra 650",
-        "latitude": -12.0665232,
-        "longitude": -77.01325109999999
-    },
-    {
-        "id": 3,
-        "name": "Mya Line",
-        "adress": "Av. Agustin Gamarra 1103",
-        "latitude": -12.0695634,
-        "longitude": -77.0128069
-    },
-    {
-        "id": 4,
-        "name": "Mya Line",
-        "adress": "Av Agustin Gamarra 1105",
-        "latitude": -12.0694625,
-        "longitude": -77.0127509
-    },
-    {
-        "id": 5,
-        "name": "Pioner",
-        "adress": "Av Agustin Gamarra 445",
-        "latitude": -12.0652889,
-        "longitude": -77.154501
-    },
-    {
-        "id": 6,
-        "name": "Bata",
-        "adress": "Av. Agustin Gamarra 1017",
-        "latitude": -12.0684229,
-        "longitude": -77.0128529
-    },
-    {
-        "id": 7,
-        "name": "Kayser",
-        "adress": "Av. La Mar 2225 - San Miguel",
-        "latitude": -12.0750562,
-        "longitude": -77.08071819999999
-    },
-    {
-        "id": 8,
-        "name": "Bata",
-        "adress": "Av. La Marina 2000, San Miguel",
-        "latitude": -12.0761542,
-        "longitude": -77.083643
-    },
-    {
-        "id": 9,
-        "name": "Bata",
-        "adress": "Jiron Jose Galvez 522 - B",
-        "latitude": -12.0903509,
-        "longitude": -77.07283799999999
-    },
-    {
-        "id": 10,
-        "name": "Bata",
-        "adress": "Av. La Mar 2275, San Miguel",
-        "latitude": -12.0749941,
-        "longitude": -77.08168979999999
-    },
-    {
-        "id": 11,
-        "name": "Victors Nombre Comercial",
-        "adress": "Av. Las Carmelias 234",
-        "latitude": -12.0931147,
-        "longitude": -77.0293717
-    },
-    {
-        "id": 12,
-        "name": "Angelas Flowers",
-        "adress": "Av. Las Carmelias 234",
-        "latitude": -12.0931147,
-        "longitude": -77.0293717
-    },
-    {
-        "id": 13,
-        "name": "Victors Nombre Comercial",
-        "adress": "Av. Las Carmelias 234",
-        "latitude": -12.0931147,
-        "longitude": -77.0293717
-    },
-    {
-        "id": 14,
-        "name": "Victors Nombre Comercial",
-        "adress": "Av. Las Carmelias 234",
-        "latitude": -12.0931147,
-        "longitude": -77.0293717
-    },
-    {
-        "id": 15,
-        "name": "Angelas Flowers",
-        "adress": "Av. Las Carmelias 234",
-        "latitude": -12.0931147,
-        "longitude": -77.0293717
-    },
-    {
-        "id": 16,
-        "name": "Abraham Store",
-        "adress": "Av. Universitaria",
-        "latitude": -12.0751071,
-        "longitude": -77.0803832
-    }
-];
-function to_store_detail(evt) {
-    evt.preventDefault()
-    console.log(evt);
-    console.log("click");
+const MAX_DISTANT = 5
+
+function to_store_detail(store_detail) {
+    console.log(store_detail);
+    console.log("click2");
+    localStorage.setItem('store_detail', JSON.stringify(store_detail));
     window.location.href = "./store_detail.html";
 }
 function getLocation() {
@@ -130,7 +17,7 @@ function getLocation() {
                 lat: my_lat,
                 lng: my_lng
             }
-            
+
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 15,
                 center: current_location,
@@ -144,16 +31,23 @@ function getLocation() {
                 }, 3000);
               });
             */
+            var stores_data_json = localStorage.getItem('stores_data')
+            var stores_data = JSON.parse(stores_data_json)
             var near_stores = get_near_stores(stores_data, current_location.lat, current_location.lng, MAX_DISTANT)
             for (const store of near_stores) {
-                var marker = new google.maps.Marker({
+                const marker = new google.maps.Marker({
+                    id: store.direccionId,
+                    title: store.nombresComercial,
                     position: { lat: store.latitude, lng: store.longitude },
                     map: map,
                 });
-               
-                  marker.addEventListener('touchstart', to_store_detail)
-                  markeraddEventListener('click', to_store_detail)
-        
+                console.log(store)
+                marker.addListener("click", function(){
+                    to_store_detail(store);
+                }, false);
+                marker.addListener("touchstart", function(){
+                    to_store_detail(store);
+                }, false);
             }
         });
     }
@@ -194,8 +88,8 @@ function showPosition(position) {
 }
 
 function initMap() {
-    
+
     getLocation()
-    
-    
+
+
 }

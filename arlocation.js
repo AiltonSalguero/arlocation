@@ -1,4 +1,4 @@
-const MAX_DISTANT = 5
+const MAX_DISTANT = 50
 function findStoreById(propValue) {
     var stores_data_json = localStorage.getItem('stores_data')
     var stores_data = JSON.parse(stores_data_json)
@@ -32,6 +32,9 @@ AFRAME.registerComponent("foo", {
 
 AFRAME.registerComponent("store_card", {
     init: function () {
+        console.log(this);
+        var store = findStoreById(this.el.id)
+        // TODO OBTENER ID Y TRAER EL PRODUCTO
         let card = document.createElement("a-entity");
         let background = document.createElement("a-plane");
         let logo = document.createElement("a-image");
@@ -47,19 +50,19 @@ AFRAME.registerComponent("store_card", {
         background.setAttribute("width", "3.6");
         background.setAttribute("position", "0 -0.5 -10.15")
 
-        logo.setAttribute("src", "#my-image")
+        logo.setAttribute("src", store.fotoUser)
         logo.setAttribute("position", "-1.17 -0.5 -10");
         logo.setAttribute("scale", "1.17 1.17 1.17")
 
-        name.setAttribute("value", "Abraham Store")
+        name.setAttribute("value", store.nombresComercial)
         name.setAttribute("scale", "1 1 1")
         name.setAttribute("position", "-0.4 0 -10")
 
-        adress.setAttribute("value", "Av La Mar 2223")
+        adress.setAttribute("value", store.direccion_Direccion)
         adress.setAttribute("scale", "0.6 0.6 0.6")
         adress.setAttribute("position", "-0.4 -0.2 -10")
 
-        ref.setAttribute("value", "Interior 1")
+        ref.setAttribute("value", store.direccionPiso)
         ref.setAttribute("scale", "0.6 0.6 0.6")
         ref.setAttribute("position", "-0.4 -0.4 -10")
 

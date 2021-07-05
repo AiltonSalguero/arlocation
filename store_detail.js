@@ -32,7 +32,7 @@ function init(){
     const row_4 = document.createElement("div");
     row_4.classList.add("row")
     var p_ref_2 = document.createElement("p");
-    var t_ref_2 = document.createTextNode("Piso: " + (store_detail.direccionPiso ? store_detail.direccion_Direccion : ""));
+    var t_ref_2 = document.createTextNode("Piso: " + (store_detail.direccionPiso ? store_detail.direccionPiso : ""));
     p_ref_2.appendChild(t_ref_2);
     row_4.appendChild(p_ref_2);
     cont.appendChild(row_4);
@@ -40,7 +40,7 @@ function init(){
     const row_5 = document.createElement("div");
     row_5.classList.add("row")
     var p_ref_3 = document.createElement("p");
-    var t_ref_3 = document.createTextNode("Referencia: " + (store_detail.ref_3 ? store_detail.direccion_Direccion : ""));
+    var t_ref_3 = document.createTextNode("Referencia: " + (store_detail.ref_3 ? store_detail.ref_3 : ""));
     p_ref_3.appendChild(t_ref_3);
     row_5.appendChild(p_ref_3);
     cont.appendChild(row_5);
@@ -48,7 +48,7 @@ function init(){
     const row_6 = document.createElement("div");
     row_6.classList.add("row")
     var p_timesheet = document.createElement("p");
-    var t_timesheet = document.createTextNode("Horario: " + (store_detail.direccionHorario ? store_detail.direccion_Direccion : ""));
+    var t_timesheet = document.createTextNode("Horario: " + (store_detail.direccionHorario ? store_detail.direccionHorario : ""));
     p_timesheet.appendChild(t_timesheet);
     row_6.appendChild(p_timesheet);
     cont.appendChild(row_6);
@@ -56,7 +56,7 @@ function init(){
     const row_7 = document.createElement("div");
     row_7.classList.add("row")
     var p_mobile = document.createElement("p");
-    var t_mobile = document.createTextNode("Celular: " + (store_detail.sM_WhatsappId ? store_detail.direccion_Direccion : ""));
+    var t_mobile = document.createTextNode("Celular: " + (store_detail.sM_WhatsappId ? store_detail.sM_WhatsappId : ""));
     p_mobile.appendChild(t_mobile);
     row_7.appendChild(p_mobile);
     cont.appendChild(row_7);

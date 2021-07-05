@@ -36,9 +36,9 @@ AFRAME.registerComponent("store_card", {
         var store = findStoreById(this.el.id)
         
         var img_logo = document.createElement("img");
-        img_logo.id='my-image'
-        img_logo.src = store.fotoUser;
-        img_logo.crossOrigin ="anonymous"
+        img_logo.setAttribute('id', 'image_'+store.direccionId);
+        img_logo.setAttribute('src', 'store.fotoUser');
+        img_logo.setAttribute('crossOrigin', 'anonymous');
         img_logo.class ="img-fluid"
         img_logo.alt="Responsive image"
         document.getElementById('assets-id').appendChild(img_logo);
@@ -58,7 +58,7 @@ AFRAME.registerComponent("store_card", {
         background.setAttribute("width", "3.6");
         background.setAttribute("position", "0 -0.5 -10.15")
 
-        logo.setAttribute("src", '#my-image')
+        logo.setAttribute("src", '#image_'+store.direccionId)
         logo.setAttribute("position", "-1.17 -0.5 -10");
         logo.setAttribute("scale", "1.17 1.17 1.17")
 

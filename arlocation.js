@@ -135,7 +135,7 @@ function showPosition(position) {
 function create_store_card(store) {
     var store_card = document.createElement('a-entity');
     store_card.setAttribute('id', store.direccionId);
-    store_card.setAttribute('gps-entity-place', 'latitude: -12.0751071; longitude: -77.0803832;');
+    store_card.setAttribute('gps-entity-place', 'latitude: '+ store.latitude + '; longitude: '+ store.longitude + ';');
     store_card.setAttribute('store_card',"");
     store_card.setAttribute('foo',"");
     return store_card;

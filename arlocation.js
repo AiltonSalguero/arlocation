@@ -34,14 +34,14 @@ AFRAME.registerComponent("store_card", {
     init: function () {
         console.log(this);
         var store = findStoreById(this.el.id)
-        let assets_image = document.createElement("a-assets");
+        
         var img_logo = document.createElement("img");
         img_logo.id='my-image'
         img_logo.src = store.fotoUser;
         img_logo.crossOrigin ="anonymous"
         img_logo.class ="img-fluid"
         img_logo.alt="Responsive image"
-        assets_image.appendChild(img_logo);
+        document.getElementById('assets-id').appendChild(img_logo);
         // TODO OBTENER ID Y TRAER EL PRODUCTO
         let card = document.createElement("a-entity");
         let background = document.createElement("a-plane");

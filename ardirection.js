@@ -82,7 +82,7 @@ function init() {
     store_detail = {
         "direccionId": 102,
         "usuarioId": 23,
-        "direccion_Direccion": "Av. Las Carmelias 234",
+        "direccion_Direccion": "Jr, Jirón Hipólito Unanue 1568, La Victoria 15018, Peru",
         "direccionPiso": "Piso 1",
         "direccionTelefono": "TelefonoNuevo",
         "direccionHorario": "HorarioNuevo",

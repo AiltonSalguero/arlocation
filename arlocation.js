@@ -56,13 +56,13 @@ AFRAME.registerComponent("store_card", {
         card.setAttribute("look-at", "[gps-camera]")
 
         background.setAttribute("color", "#B21ace");
-        background.setAttribute("height", "1.2");
-        background.setAttribute("width", "3.6");
+        background.setAttribute("height", "1.6");
+        background.setAttribute("width", "4");
         background.setAttribute("position", "0 -0.5 -10.15")
 
         logo.setAttribute("src", '#image_' + store.direccionId)
-        logo.setAttribute("position", "-1.17 -0.5 -10");
-        logo.setAttribute("scale", "1.17 1.17 1.17")
+        logo.setAttribute("position", "-1.2 -0.5 -10");
+        logo.setAttribute("scale", "1.6 1.6 1.6")
 
 
         name.setAttribute("value", store.nombresComercial)
@@ -72,14 +72,15 @@ AFRAME.registerComponent("store_card", {
             //name.setAttribute("font", "custom-msdf.json")
 
         adress.setAttribute("value", store.direccion_Direccion)
-        adress.setAttribute("scale", "0.6 0.6 0.6")
-        adress.setAttribute("position", "-0.4 -0.2 -10")
-        adress.setAttribute("text", "wrapCount: 30")
+        adress.setAttribute("scale", "0.4 0.4 0.4")
+        adress.setAttribute("position", "-0.4 -0.4 -10")
+        adress.setAttribute("text", "wrapCount: 20")
+        adress.setAttribute("text", "height: 1")
             //adress.setAttribute("font", "custom-msdf.json")
 
         ref.setAttribute("value", store.direccionPiso)
         ref.setAttribute("scale", "0.6 0.6 0.6")
-        ref.setAttribute("position", "-0.4 -0.4 -10")
+        ref.setAttribute("position", "-0.4 -0.8 -10")
         ref.setAttribute("text", "wrapCount: 30")
             //ref.setAttribute("font", "custom-msdf.json")
 

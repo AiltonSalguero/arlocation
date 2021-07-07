@@ -1,3 +1,14 @@
+function findStoreById(propValue) {
+    var stores_data_json = localStorage.getItem('stores_data')
+    var stores_data = JSON.parse(stores_data_json)
+
+    for (var i = 0; i < stores_data.length; i++)
+        if (stores_data[i].direccionId == propValue)
+            return stores_data[i];
+
+        // will return undefined if not found; you could return a default instead
+}
+
 AFRAME.registerComponent("store_card", {
     init: function() {
         console.log(this);
@@ -18,16 +29,16 @@ AFRAME.registerComponent("store_card", {
         let adress = document.createElement("a-text");
         let ref = document.createElement("a-text");
 
-        card.setAttribute("scale", "5 5 5")
+        card.setAttribute("scale", "9 9 9")
         card.setAttribute("look-at", "[gps-camera]")
 
         background.setAttribute("color", "#B21ace");
-        background.setAttribute("height", "1.2");
-        background.setAttribute("width", "3.6");
+        background.setAttribute("height", "1.6");
+        background.setAttribute("width", "4");
         background.setAttribute("position", "0 -0.5 -10.15")
 
         logo.setAttribute("src", '#image_' + store.direccionId)
-        logo.setAttribute("position", "-1.17 -0.5 -10");
+        logo.setAttribute("position", "-1.2 -0.5 -10");
         logo.setAttribute("scale", "1.17 1.17 1.17")
 
         name.setAttribute("value", store.nombresComercial)
@@ -54,6 +65,7 @@ AFRAME.registerComponent("store_card", {
         card.appendChild(adress)
         card.appendChild(ref)
         this.el.appendChild(card);
+        console.log(card)
     }
 })
 
@@ -82,6 +94,7 @@ function create_store_card(store) {
 function init() {
     var store_detail_json = localStorage.getItem('store_detail')
     var store_detail = JSON.parse(store_detail_json)
+    console.log(store_detail)
     store_detail = {
         "direccionId": 102,
         "usuarioId": 23,
@@ -101,8 +114,10 @@ function init() {
         "latitude": -11.9654429,
         "longitude": -76.9942375
     }
-    create_store_card(store_detail)
+    var sceneEl = document.querySelector("a-scene");
+    const store_card = create_store_card(store_detail)
+    sceneEl.appendChild(store_card);
     var arrow_img = document.getElementById('arrow2')
     arrow_img.setAttribute("rotation", "180 270 90")
-    arrow_img.setAttribute("look-at", '#' + store_detail.direccionId)
+    arrow_img.setAttribute("look-at", '#102')
 }

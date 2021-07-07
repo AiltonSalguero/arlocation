@@ -33,17 +33,17 @@ AFRAME.registerComponent("store_card", {
         name.setAttribute("value", store.nombresComercial)
         name.setAttribute("scale", "1 1 1")
         name.setAttribute("position", "-0.4 0 -10")
-        name.setAttribute("font", "custom-msdf.json")
+            //name.setAttribute("font", "custom-msdf.json")
 
         adress.setAttribute("value", store.direccion_Direccion)
         adress.setAttribute("scale", "0.6 0.6 0.6")
         adress.setAttribute("position", "-0.4 -0.2 -10")
-        adress.setAttribute("font", "custom-msdf.json")
+            //adress.setAttribute("font", "custom-msdf.json")
 
         ref.setAttribute("value", store.direccionPiso)
         ref.setAttribute("scale", "0.6 0.6 0.6")
         ref.setAttribute("position", "-0.4 -0.4 -10")
-        ref.setAttribute("font", "custom-msdf.json")
+            //ref.setAttribute("font", "custom-msdf.json")
 
         card.appendChild(background)
         card.appendChild(logo)

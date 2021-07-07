@@ -39,6 +39,7 @@ AFRAME.registerComponent("store_card", {
         img_logo.setAttribute('id', 'image_'+store.direccionId);
         img_logo.setAttribute('src', store.fotoUser);
         img_logo.class ="img-fluid"
+        img_logo.crossOrigin = "anonymous";
         img_logo.alt="Responsive image"
         document.getElementById('assets-id').appendChild(img_logo);
         // TODO OBTENER ID Y TRAER EL PRODUCTO

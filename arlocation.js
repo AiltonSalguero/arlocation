@@ -1,14 +1,16 @@
 const MAX_DISTANT = 5
+
 function findStoreById(propValue) {
     var stores_data_json = localStorage.getItem('stores_data')
     var stores_data = JSON.parse(stores_data_json)
 
-    for (var i=0; i < stores_data.length; i++)
-      if (stores_data[i].direccionId == propValue)
-        return stores_data[i];
-  
-    // will return undefined if not found; you could return a default instead
-  }
+    for (var i = 0; i < stores_data.length; i++)
+        if (stores_data[i].direccionId == propValue)
+            return stores_data[i];
+
+        // will return undefined if not found; you could return a default instead
+}
+
 function to_store_detail(store_detail) {
     console.log(store_detail);
     console.log("click1");
@@ -18,29 +20,29 @@ function to_store_detail(store_detail) {
 
 
 AFRAME.registerComponent("foo", {
-    init: function () {
+    init: function() {
         console.log(this);
         var store = findStoreById(this.el.id)
-        this.el.addEventListener('touchstart', function () {
+        this.el.addEventListener('touchstart', function() {
             to_store_detail(store);
         }, false);
-        this.el.addEventListener('click', function () {
+        this.el.addEventListener('click', function() {
             to_store_detail(store);
         }, false);
     }
 })
 
 AFRAME.registerComponent("store_card", {
-    init: function () {
+    init: function() {
         console.log(this);
         var store = findStoreById(this.el.id)
-        
+
         var img_logo = document.createElement("img");
-        img_logo.setAttribute('id', 'image_'+store.direccionId);
-        img_logo.setAttribute('src', store.fotoUser);
-        img_logo.class ="img-fluid"
+        img_logo.setAttribute('id', 'image_' + store.direccionId);
+        img_logo.setAttribute('src', store.logoUser);
+        img_logo.class = "img-fluid"
         img_logo.crossOrigin = "anonymous";
-        img_logo.alt="Responsive image"
+        img_logo.alt = "Responsive image"
         document.getElementById('assets-id').appendChild(img_logo);
         // TODO OBTENER ID Y TRAER EL PRODUCTO
         let card = document.createElement("a-entity");
@@ -58,21 +60,28 @@ AFRAME.registerComponent("store_card", {
         background.setAttribute("width", "3.6");
         background.setAttribute("position", "0 -0.5 -10.15")
 
-        logo.setAttribute("src", '#image_'+store.direccionId)
+        logo.setAttribute("src", '#image_' + store.direccionId)
         logo.setAttribute("position", "-1.17 -0.5 -10");
         logo.setAttribute("scale", "1.17 1.17 1.17")
+
 
         name.setAttribute("value", store.nombresComercial)
         name.setAttribute("scale", "1 1 1")
         name.setAttribute("position", "-0.4 0 -10")
+        name.setAttribute("wrapCount", "15")
+        name.setAttribute("font", "custom-msdf.json")
 
         adress.setAttribute("value", store.direccion_Direccion)
         adress.setAttribute("scale", "0.6 0.6 0.6")
         adress.setAttribute("position", "-0.4 -0.2 -10")
+        adress.setAttribute("wrapCount", "15")
+        adress.setAttribute("font", "custom-msdf.json")
 
         ref.setAttribute("value", store.direccionPiso)
         ref.setAttribute("scale", "0.6 0.6 0.6")
         ref.setAttribute("position", "-0.4 -0.4 -10")
+        ref.setAttribute("wrapCount", "15")
+        ref.setAttribute("font", "custom-msdf.json")
 
         card.appendChild(background)
         card.appendChild(logo)
@@ -85,7 +94,7 @@ AFRAME.registerComponent("store_card", {
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
+        navigator.geolocation.getCurrentPosition(function(position) {
             var my_lat = position.coords.latitude
             var my_lng = position.coords.longitude
             console.log("Latitude is :", my_lat);
@@ -105,11 +114,11 @@ function getLocation() {
         });
     }
 }
+
 function distance(lat1, lon1, lat2, lon2, unit) {
     if ((lat1 == lat2) && (lon1 == lon2)) {
         return 0;
-    }
-    else {
+    } else {
         var radlat1 = Math.PI * lat1 / 180;
         var radlat2 = Math.PI * lat2 / 180;
         var theta = lon1 - lon2;
@@ -127,6 +136,7 @@ function distance(lat1, lon1, lat2, lon2, unit) {
         return dist;
     }
 }
+
 function get_near_stores(stores, lat, lng, max_distance) {
     var near_stores = []
     for (const store of stores) {
@@ -137,6 +147,7 @@ function get_near_stores(stores, lat, lng, max_distance) {
     }
     return near_stores
 }
+
 function showPosition(position) {
     console.log("Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude)
 }
@@ -144,9 +155,9 @@ function showPosition(position) {
 function create_store_card(store) {
     var store_card = document.createElement('a-entity');
     store_card.setAttribute('id', store.direccionId);
-    store_card.setAttribute('gps-entity-place', 'latitude: '+ store.latitude + '; longitude: '+ store.longitude + ';');
-    store_card.setAttribute('store_card',"");
-    store_card.setAttribute('foo',"");
+    store_card.setAttribute('gps-entity-place', 'latitude: ' + store.latitude + '; longitude: ' + store.longitude + ';');
+    store_card.setAttribute('store_card', "");
+    store_card.setAttribute('foo', "");
     return store_card;
 }
 

@@ -1,6 +1,5 @@
 function init() {
-    var stores_data = [
-        {
+    var stores_data = [{
             "direccionId": 14,
             "usuarioId": 1,
             "direccion_Direccion": "Av. Agustin Gamarra 140",
@@ -269,7 +268,7 @@ function init() {
         {
             "direccionId": 10,
             "usuarioId": 2,
-            "direccion_Direccion": "Av. Las Carmelias 234",
+            "direccion_Direccion": "Jr, Jirón Hipólito Unanue 1568, La Victoria 15018, Peru",
             "direccionPiso": "Piso 1",
             "direccionTelefono": "TelefonoNuevo",
             "direccionHorario": "HorarioNuevo",
@@ -288,7 +287,7 @@ function init() {
         {
             "direccionId": 102,
             "usuarioId": 23,
-            "direccion_Direccion": "Av. Las Carmelias 234",
+            "direccion_Direccion": "Jr, Jirón Hipólito Unanue 1568, La Victoria 15018, Peru",
             "direccionPiso": "Piso 1",
             "direccionTelefono": "TelefonoNuevo",
             "direccionHorario": "HorarioNuevo",
@@ -307,4 +306,3 @@ function init() {
     ];
     localStorage.setItem('stores_data', JSON.stringify(stores_data));
 }
-

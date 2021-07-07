@@ -1,4 +1,4 @@
-function init(){
+function init() {
     var store_detail_json = localStorage.getItem('store_detail')
     var store_detail = JSON.parse(store_detail_json)
     var cont = document.getElementById('cont');
@@ -12,7 +12,7 @@ function init(){
     h_name.appendChild(t_name);
     row_1.appendChild(h_name);
     cont.appendChild(row_1);
-    
+
     const row_2 = document.createElement("div");
     row_2.classList.add("row")
     var p_adress = document.createElement("p");
@@ -83,9 +83,9 @@ function init(){
     row_10_1.classList.add("col")
     row_10_1.classList.add("text-center")
     var img_logo = document.createElement("img");
-    img_logo.src = store_detail.fotoUser;
-    img_logo.class ="img-fluid"
-    img_logo.alt="Responsive image"
+    img_logo.src = store_detail.logoUser;
+    img_logo.class = "img-fluid"
+    img_logo.alt = "Responsive image"
     row_10.appendChild(img_logo);
     cont.appendChild(row_10);
 
@@ -103,7 +103,7 @@ function init(){
     var button_ar_text = document.createTextNode('Volver a AR');
     button_ar.setAttribute('href', "./arlocation.html");
     button_ar.setAttribute('alt', "Responsive image");
-    
+
     button_ar.appendChild(button_ar_text);
     row_11.appendChild(button_ar);
     cont.appendChild(row_11);

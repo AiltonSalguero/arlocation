@@ -118,6 +118,10 @@ function getLocation() {
 }
 
 function distance(lat1, lon1, lat2, lon2, unit) {
+    console.log(lat1)
+    console.log(lon1)
+    console.log(lat2)
+    console.log(lon2)
     if ((lat1 == lat2) && (lon1 == lon2)) {
         return 0;
     } else {

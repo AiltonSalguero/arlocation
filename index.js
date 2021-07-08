@@ -4,8 +4,8 @@ function get_data_stores() {
         const stores_data = data['usuariosRolTiendaByQuery']
         console.log(stores_data);
         stores_data.forEach(store => {
-            store.direccion_Latitud = parseFloat(store.direccion_Latitud.text().replace(',', '.'));
-            store.direccion_Longitud = parseFloat(store.direccion_Longitud.text().replace(',', '.'));
+            store.direccion_Latitud = parseFloat(store.direccion_Latitud.replace(',', '.'));
+            store.direccion_Longitud = parseFloat(store.direccion_Longitud.replace(',', '.'));
         })
         console.log(stores_data);
         localStorage.setItem('stores_data', JSON.stringify(stores_data));

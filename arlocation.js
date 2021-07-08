@@ -96,8 +96,8 @@ AFRAME.registerComponent("store_card", {
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            var my_lat = position.coords.direccion_Latitud
-            var my_lng = position.coords.direccion_Longitud
+            var my_lat = position.coords.latitude
+            var my_lng = position.coords.longitude
             console.log("Latitude is :", my_lat);
             console.log("Longitude is :", my_lng);
             current_location = {

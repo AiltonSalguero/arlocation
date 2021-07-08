@@ -106,6 +106,7 @@ function getLocation() {
             }
             var stores_data_json = localStorage.getItem('stores_data')
             var stores_data = JSON.parse(stores_data_json)
+            console.log(stores_data)
             var near_stores = get_near_stores(stores_data, current_location.lat, current_location.lng, MAX_DISTANT)
             for (const store of near_stores) {
                 var sceneEl = document.querySelector("a-scene");
@@ -141,7 +142,7 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 function get_near_stores(stores, lat, lng, max_distance) {
     var near_stores = []
     for (const store of stores) {
-        if (distance(store.direccion_Latitud, store.direccion_Longitud, lat, lng, "k") < max_distance) {
+        if (distance(parseFloat(store.direccion_Latitud), parseFloat(store.direccion_Longitud), lat, lng, "k") < max_distance) {
             near_stores.push(store)
         }
 

@@ -6,11 +6,12 @@ function to_store_detail(store_detail) {
     localStorage.setItem('store_detail', JSON.stringify(store_detail));
     window.location.href = "./store_detail.html";
 }
+
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var my_lat = position.coords.latitude
-            var my_lng = position.coords.longitude
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var my_lat = position.coords.direccion_Latitud
+            var my_lng = position.coords.direccion_Longitud
             console.log("Latitude is :", my_lat);
             console.log("Longitude is :", my_lng);
             current_location = {
@@ -38,25 +39,25 @@ function getLocation() {
                 const marker = new google.maps.Marker({
                     id: store.direccionId,
                     title: store.nombresComercial,
-                    position: { lat: store.latitude, lng: store.longitude },
+                    position: { lat: parseFloat(store.direccion_Latitud), lng: parseFloat(store.direccion_Longitud) },
                     map: map,
                 });
                 console.log(store)
-                marker.addListener("click", function(){
+                marker.addListener("click", function() {
                     to_store_detail(store);
                 }, false);
-                marker.addListener("touchstart", function(){
+                marker.addListener("touchstart", function() {
                     to_store_detail(store);
                 }, false);
             }
         });
     }
 }
+
 function distance(lat1, lon1, lat2, lon2, unit) {
     if ((lat1 == lat2) && (lon1 == lon2)) {
         return 0;
-    }
-    else {
+    } else {
         var radlat1 = Math.PI * lat1 / 180;
         var radlat2 = Math.PI * lat2 / 180;
         var theta = lon1 - lon2;
@@ -73,18 +74,20 @@ function distance(lat1, lon1, lat2, lon2, unit) {
         return dist;
     }
 }
+
 function get_near_stores(stores, lat, lng, max_distance) {
     var near_stores = []
     for (const store of stores) {
-        if (distance(store.latitude, store.longitude, lat, lng, "k") < max_distance) {
+        if (distance(store.direccion_Latitud, store.direccion_Longitud, lat, lng, "k") < max_distance) {
             near_stores.push(store)
         }
 
     }
     return near_stores
 }
+
 function showPosition(position) {
-    console.log("Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude)
+    console.log("Latitude: " + position.coords.direccion_Latitud + "Longitude: " + position.coords.direccion_Longitud)
 }
 
 function initMap() {

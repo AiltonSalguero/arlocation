@@ -96,8 +96,8 @@ AFRAME.registerComponent("store_card", {
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            var my_lat = position.coords.latitude
-            var my_lng = position.coords.longitude
+            var my_lat = position.coords.direccion_Latitud
+            var my_lng = position.coords.direccion_Longitud
             console.log("Latitude is :", my_lat);
             console.log("Longitude is :", my_lng);
             current_location = {
@@ -141,7 +141,7 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 function get_near_stores(stores, lat, lng, max_distance) {
     var near_stores = []
     for (const store of stores) {
-        if (distance(store.latitude, store.longitude, lat, lng, "k") < max_distance) {
+        if (distance(store.direccion_Latitud, store.direccion_Longitud, lat, lng, "k") < max_distance) {
             near_stores.push(store)
         }
 
@@ -150,13 +150,13 @@ function get_near_stores(stores, lat, lng, max_distance) {
 }
 
 function showPosition(position) {
-    console.log("Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude)
+    console.log("Latitude: " + position.coords.direccion_Latitud + "Longitude: " + position.coords.direccion_Longitud)
 }
 
 function create_store_card(store) {
     var store_card = document.createElement('a-entity');
     store_card.setAttribute('id', store.direccionId);
-    store_card.setAttribute('gps-entity-place', 'latitude: ' + store.latitude + '; longitude: ' + store.longitude + ';');
+    store_card.setAttribute('gps-entity-place', 'latitude: ' + store.direccion_Latitud + '; longitude: ' + store.direccion_Longitud + ';');
     store_card.setAttribute('store_card', "");
     store_card.setAttribute('foo', "");
     return store_card;

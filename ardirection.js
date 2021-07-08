@@ -85,7 +85,7 @@ AFRAME.registerComponent("foo", {
 function create_store_card(store) {
     var store_card = document.createElement('a-entity');
     store_card.setAttribute('id', store.direccionId);
-    store_card.setAttribute('gps-entity-place', 'latitude: ' + store.latitude + '; longitude: ' + store.longitude + ';');
+    store_card.setAttribute('gps-entity-place', 'latitude: ' + store.direccion_Latitud + '; longitude: ' + store.direccion_Longitud + ';');
     store_card.setAttribute('store_card', "");
     store_card.setAttribute('foo', "");
     return store_card;

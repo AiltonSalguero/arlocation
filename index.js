@@ -8,6 +8,29 @@ function get_data_stores() {
             store.direccion_Longitud = parseFloat(store.direccion_Longitud.replace(',', '.'));
         })
         console.log(stores_data);
+        stores_data.push(
+            {
+                "direccionId": 15,
+                "usuarioId": 14,
+                "direccion_Direccion": "Agustin Gamarra 650, La Victoria 15018, Perú",
+                "direccionPiso": "1",
+                "direccion_NroLocal": "650",
+                "direccion_Referencia": "Alt. Av Agustin Gamarra Cdra 6",
+                "direccionTelefono": "",
+                "direccionHorario": "9:30 - 20:00",
+                "direccion_Latitud": "-11.9654429",
+                "direccion_Longitud": "-76.9942375",
+                "nombresComercial": "Kayser",
+                "fotoUser": "https://gamarraappstorage.blob.core.windows.net/imagenesusuarios/UserPhoto_14.png",
+                "logoUser": "https://gamarraappstorage.blob.core.windows.net/logosusuarios/UserLogo_14.png",
+                "galeriaId": 0,
+                "galeriaDescripcion": "[No posee Galeria]",
+                "galeria_Direccion": null,
+                "sM_FacebookId": "kayser.peru",
+                "sM_InstagramId": "kayserperu",
+                "sM_WhatsappId": "999693860"
+              }
+        );
         localStorage.setItem('stores_data', JSON.stringify(stores_data));
 
     })

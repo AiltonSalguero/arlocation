@@ -11,6 +11,12 @@ AFRAME.registerComponent("foo", {
     }
 })
 
+AFRAME.registerComponent("target_arrow", {
+    init: function() {
+        console.log(this);
+    }
+})
+
 AFRAME.registerComponent("store_card", {
     init: function() {
         console.log(this);

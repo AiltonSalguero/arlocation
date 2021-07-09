@@ -6,7 +6,7 @@ function findStoreById(propValue) {
         if (stores_data[i].direccionId == propValue)
             return stores_data[i];
 
-        // will return undefined if not found; you could return a default instead
+    // will return undefined if not found; you could return a default instead
 }
 
 function create_store_card(store) {
@@ -18,6 +18,19 @@ function create_store_card(store) {
     return store_card;
 }
 
+function create_directional_arrow(look_at_id) {
+    var sceneEl = document.querySelector("a-scene");
+
+    let arrow_img = document.createElement("a-image");
+    arrow_img.setAttribute("id", "arrow_direction")
+    arrow_img.setAttribute("src", "#arrow_image")
+    arrow_img.setAttribute("position", "0 0 0");
+    arrow_img.setAttribute("scale", "0.8 0.8 0.8")
+    arrow_img.setAttribute("rotation", "180 270 90")
+
+    directional_arrow.setAttribute("look-at", '#' + look_at_id)
+    sceneEl.appendChild(directional_arrow);
+}
 function init() {
     var store_detail_json = localStorage.getItem('store_detail')
     var store_detail = JSON.parse(store_detail_json)
@@ -25,7 +38,6 @@ function init() {
     var sceneEl = document.querySelector("a-scene");
     const store_card = create_store_card(store_detail)
     sceneEl.appendChild(store_card);
-    var arrow_img = document.getElementById('#arrow_direction')
-    arrow_img.setAttribute("rotation", "180 270 90")
-    //arrow_img.setAttribute("look-at", '#'+store_detail.direccionId)
+
+    create_directional_arrow(store_detail.direccionId);
 }

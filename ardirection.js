@@ -32,9 +32,9 @@ function create_directional_arrow() {
 }
 
 function init() {
-    var store_detail_json = localStorage.getItem('store_detail')
-    var store_detail = JSON.parse(store_detail_json)
-    store_detail = {
+    //var store_detail_json = localStorage.getItem('store_detail')
+    //var store_detail = JSON.parse(store_detail_json)
+    var store_detail = {
         "direccionId": 150,
         "usuarioId": 14,
         "direccion_Direccion": "Agustin Gamarra 650, La Victoria 15018, Perú",

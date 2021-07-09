@@ -49,5 +49,5 @@ function init() {
     sceneEl.appendChild(store_card);
     var arrow_img = document.getElementById('arrow2')
     arrow_img.setAttribute("rotation", "180 270 90")
-    arrow_img.setAttribute("look-at", '#102')
+    arrow_img.setAttribute("look-at", '#'+store_detail.direccionId)
 }

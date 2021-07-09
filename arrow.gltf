@@ -153,9 +153,9 @@
       "name": "Material",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.16617100000000001,
-          0.73612200000000005,
-          0.18898899999999999,
+          0.63922,
+          0.15686,
+          1.00000,
           1
         ],
         "metallicFactor": 0,

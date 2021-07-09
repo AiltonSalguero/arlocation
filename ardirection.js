@@ -25,7 +25,7 @@ function create_directional_arrow() {
     directional_arrow.setAttribute("id", "arrow_direction")
     directional_arrow.setAttribute("gltf-model", "#arrow_model")
     directional_arrow.setAttribute("position", "0 -0.5 -0.5");
-    directional_arrow.setAttribute("scale", "0.8 0.8 0.8")
+    directional_arrow.setAttribute("scale", "0.1 0.1 0.1")
     directional_arrow.setAttribute("rotation", "180 -90 -90")
     directional_arrow.setAttribute("look-at", "[target_arrow]")
     camera.appendChild(directional_arrow);

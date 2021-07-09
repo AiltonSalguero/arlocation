@@ -19,7 +19,7 @@ function create_store_card(store) {
 }
 
 function create_directional_arrow() {
-    var sceneEl = document.querySelector("a-scene");
+    var camera = document.querySelector("a-camera");
 
     let directional_arrow = document.createElement("a-image");
     directional_arrow.setAttribute("id", "arrow_direction")
@@ -28,7 +28,7 @@ function create_directional_arrow() {
     directional_arrow.setAttribute("scale", "0.8 0.8 0.8")
     directional_arrow.setAttribute("rotation", "180 270 90")
     directional_arrow.setAttribute("look-at", "[target_arrow]")
-    sceneEl.appendChild(directional_arrow);
+    camera.appendChild(directional_arrow);
 }
 
 function init() {

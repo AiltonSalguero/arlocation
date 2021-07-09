@@ -34,10 +34,10 @@ function create_directional_arrow() {
 function init() {
     var store_detail_json = localStorage.getItem('store_detail')
     var store_detail = JSON.parse(store_detail_json)
-    store_card.setAttribute('target_arrow', "");
     console.log(store_detail)
     var sceneEl = document.querySelector("a-scene");
     const store_card = create_store_card(store_detail)
+    store_card.setAttribute('target_arrow', "");
     sceneEl.appendChild(store_card);
 
     create_directional_arrow();

@@ -20,11 +20,11 @@ function create_store_card(store) {
 
 function create_directional_arrow() {
     var camera = document.querySelector("a-camera");
-
+    console.log(camera);
     let directional_arrow = document.createElement("a-image");
     directional_arrow.setAttribute("id", "arrow_direction")
     directional_arrow.setAttribute("src", "#arrow_image")
-    directional_arrow.setAttribute("position", "0 0 0");
+    directional_arrow.setAttribute("position", "0 -0.5 -0.5");
     directional_arrow.setAttribute("scale", "0.8 0.8 0.8")
     directional_arrow.setAttribute("rotation", "180 270 90")
     directional_arrow.setAttribute("look-at", "[target_arrow]")

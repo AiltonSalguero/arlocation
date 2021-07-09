@@ -25,7 +25,7 @@ function init() {
     var sceneEl = document.querySelector("a-scene");
     const store_card = create_store_card(store_detail)
     sceneEl.appendChild(store_card);
-    var arrow_img = document.getElementById('arrow_direction')
+    var arrow_img = document.getElementById('#arrow_direction')
     arrow_img.setAttribute("rotation", "180 270 90")
     //arrow_img.setAttribute("look-at", '#'+store_detail.direccionId)
 }

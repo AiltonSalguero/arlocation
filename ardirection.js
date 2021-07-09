@@ -21,7 +21,7 @@ function create_store_card(store) {
 function create_directional_arrow() {
     var camera = document.querySelector("a-camera");
     console.log(camera);
-    var directional_arrow = document.getElementById("#arrow_direction");
+    var directional_arrow = document.getElementById("arrow_direction");
     directional_arrow.setAttribute("look-at", "[target_arrow]")
     camera.appendChild(directional_arrow);
 }

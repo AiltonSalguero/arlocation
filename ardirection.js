@@ -19,18 +19,19 @@ function create_store_card(store) {
 }
 
 function create_directional_arrow(look_at_id) {
+    console.log(look_at_id)
     var sceneEl = document.querySelector("a-scene");
 
-    let arrow_img = document.createElement("a-image");
-    arrow_img.setAttribute("id", "arrow_direction")
-    arrow_img.setAttribute("src", "#arrow_image")
-    arrow_img.setAttribute("position", "0 0 0");
-    arrow_img.setAttribute("scale", "0.8 0.8 0.8")
-    arrow_img.setAttribute("rotation", "180 270 90")
-
+    let directional_arrow = document.createElement("a-image");
+    directional_arrow.setAttribute("id", "arrow_direction")
+    directional_arrow.setAttribute("src", "#arrow_image")
+    directional_arrow.setAttribute("position", "0 0 0");
+    directional_arrow.setAttribute("scale", "0.8 0.8 0.8")
+    directional_arrow.setAttribute("rotation", "180 270 90")
     directional_arrow.setAttribute("look-at", '#' + look_at_id)
     sceneEl.appendChild(directional_arrow);
 }
+
 function init() {
     var store_detail_json = localStorage.getItem('store_detail')
     var store_detail = JSON.parse(store_detail_json)

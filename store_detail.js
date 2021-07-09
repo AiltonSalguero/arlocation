@@ -1,3 +1,7 @@
+function goBack() {
+    window.history.back();
+}
+
 function init() {
     var store_detail_json = localStorage.getItem('store_detail')
     var store_detail = JSON.parse(store_detail_json)
@@ -6,11 +10,27 @@ function init() {
     const row_1 = document.createElement("div");
     row_1.classList.add("row")
     row_1.classList.add("btn-primary")
-    row_1.classList.add("text-center")
+
+    const row_1_col_1 = document.createElement("div");
+    const row_1_col_2 = document.createElement("div");
+    row_1_col_1.classList.add("col-1")
+    row_1_col_2.classList.add("col-6")
+
+
+    var back_button = document.createElement("button");
+    back_button.setAttribute('onclick', "goBack()");
+    back_button.classList.add("btn")
+    back_button.classList.add("btn-primary")
+    back_button_name = document.createTextNode("<");
+    back_button.appendChild(back_button_name);
+    row_1_col_1.appendChild(back_button);
     var h_name = document.createElement("H1");
     var t_name = document.createTextNode(store_detail.nombresComercial ? store_detail.nombresComercial : "");
     h_name.appendChild(t_name);
-    row_1.appendChild(h_name);
+    row_1_col_2.appendChild(h_name);
+
+    row_1.appendChild(row_1_col_1);
+    row_1.appendChild(row_1_col_2);
     cont.appendChild(row_1);
 
     const row_2 = document.createElement("div");
@@ -100,8 +120,8 @@ function init() {
     button_ar.classList.add("btn-primary")
     button_ar.classList.add("btn-lg")
     button_ar.classList.add("btn-block")
-    var button_ar_text = document.createTextNode('Volver a AR');
-    button_ar.setAttribute('href', "./arlocation.html");
+    var button_ar_text = document.createTextNode('Ir con Realidad Aumentada');
+    button_ar.setAttribute('href', "./ardirection.html");
     button_ar.setAttribute('alt', "Responsive image");
 
     button_ar.appendChild(button_ar_text);

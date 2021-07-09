@@ -7,7 +7,6 @@ function get_data_stores() {
             store.direccion_Latitud = parseFloat(store.direccion_Latitud.replace(',', '.'));
             store.direccion_Longitud = parseFloat(store.direccion_Longitud.replace(',', '.'));
         })
-        console.log(stores_data);
         stores_data.push(
             {
                 "direccionId": 15,
@@ -31,6 +30,7 @@ function get_data_stores() {
                 "sM_WhatsappId": "999693860"
               }
         );
+        console.log(stores_data);
         localStorage.setItem('stores_data', JSON.stringify(stores_data));
 
     })

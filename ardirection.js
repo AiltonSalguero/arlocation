@@ -26,7 +26,7 @@ function create_directional_arrow() {
     directional_arrow.setAttribute("src", "#arrow_image")
     directional_arrow.setAttribute("position", "0 -0.5 -0.5");
     directional_arrow.setAttribute("scale", "0.8 0.8 0.8")
-    directional_arrow.setAttribute("rotation", "180 270 90")
+    directional_arrow.setAttribute("rotation", "180 -90 -90")
     directional_arrow.setAttribute("look-at", "[target_arrow]")
     camera.appendChild(directional_arrow);
 }

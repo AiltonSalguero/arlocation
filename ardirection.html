@@ -5,7 +5,7 @@
     <meta charset='utf-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <title>Gamarra AR</title>
-    <link rel="icon" type="image/jpg" href="favicon.jpg"/>
+    <link rel="icon" type="image/jpg" href="favicon.jpg" />
     <script src='https://aframe.io/releases/1.0.4/aframe.min.js'></script>
     <script src='https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js'></script>
     <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
@@ -14,7 +14,8 @@
 </head>
 
 <body style='margin: 0; overflow: hidden;' id='body' onload="init()">
-    <a-scene vr-mode-ui='enabled: false' cursor="rayOrigin: mouse" renderer='antialias: true; alpha:true' arjs='videoTexture: true; sourceType: webcam; debugUIEnabled: false'>
+    <a-scene vr-mode-ui='enabled: false' cursor="rayOrigin: mouse" renderer='antialias: true; alpha:true'
+        arjs='videoTexture: true; sourceType: webcam; debugUIEnabled: false'>
         <!-- Abraham gps-entity-place='latitude: -12.0751071; longitude: -77.0803832;'-->
         <!-- Ailton gps-entity-place='latitude: -11.9654429; longitude: -76.9942375;'-->
         <a-assets id='assets-id'>
@@ -22,7 +23,11 @@
         </a-assets>
 
         <a-camera gps-camera rotation-reader>
-            <a-entity id="arrow_direction" gltf-model="#arrow_model" position="0 0 -0.5" scale="0.08 0.08 0.08" rotation="200 200 200"></a-entity>
+            <a-entity rotation="200 200 200">
+                <a-entity id="arrow_direction" gltf-model="#arrow_model" position="0 0 -0.5" scale="0.08 0.08 0.08">
+                </a-entity>
+            </a-entity>
+
         </a-camera>
 
     </a-scene>

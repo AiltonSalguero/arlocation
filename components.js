@@ -66,13 +66,13 @@ AFRAME.registerComponent("store_card", {
 
         n_local.setAttribute("value", "N local: " + (store_detail.direccion_NroLocal ? store_detail.direccion_NroLocal : ""))
         n_local.setAttribute("scale", "0.6 0.6 0.6")
-        n_local.setAttribute("position", "-0.4 -0.8 -10")
+        n_local.setAttribute("position", "-0.4 -0.75 -10")
         n_local.setAttribute("text", "wrapCount: 30")
         //ref.setAttribute("font", "custom-msdf.json")
 
         ref.setAttribute("value", "Piso: " + (store_detail.direccionPiso ? store_detail.direccionPiso : ""))
         ref.setAttribute("scale", "0.6 0.6 0.6")
-        ref.setAttribute("position", "-0.4 -0.8 -10")
+        ref.setAttribute("position", "-0.4 -0.9 -10")
         ref.setAttribute("text", "wrapCount: 30")
         //ref.setAttribute("font", "custom-msdf.json")
 

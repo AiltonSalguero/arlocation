@@ -6,3 +6,7 @@ img {
 
 h1 {text-align:center;position:relative}
 p{ font-size: 24px; }
+
+.limit_img{
+    max-height: 300px;
+}

@@ -104,7 +104,8 @@ function init() {
     row_10_1.classList.add("text-center")
     var img_logo = document.createElement("img");
     img_logo.src = store_detail.logoUser;
-    img_logo.class = "img-fluid"
+    img_logo.classList.add("img-fluid")
+    img_logo.classList.add("limit_img")
     img_logo.alt = "Responsive image"
     row_10.appendChild(img_logo);
     cont.appendChild(row_10);

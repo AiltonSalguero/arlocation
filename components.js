@@ -20,11 +20,11 @@ AFRAME.registerComponent("target_arrow", {
 AFRAME.registerComponent("store_card", {
     init: function () {
         console.log(this);
-        var store = findStoreById(this.el.id)
+        var store_detail = findStoreById(this.el.id)
 
         var img_logo = document.createElement("img");
-        img_logo.setAttribute('id', 'image_' + store.direccionId);
-        img_logo.setAttribute('src', store.logoUser);
+        img_logo.setAttribute('id', 'image_' + store_detail.direccionId);
+        img_logo.setAttribute('src', store_detail.logoUser);
         img_logo.class = "img-fluid"
         img_logo.crossOrigin = "anonymous";
         img_logo.alt = "Responsive image"
@@ -46,7 +46,7 @@ AFRAME.registerComponent("store_card", {
         background.setAttribute("width", "4");
         background.setAttribute("position", "0 -0.5 -10.15")
 
-        logo.setAttribute("src", '#image_' + store.direccionId)
+        logo.setAttribute("src", '#image_' + store_detail.direccionId)
         logo.setAttribute("position", "-1.2 -0.5 -10");
         logo.setAttribute("scale", "1.6 1.6 1.6")
 

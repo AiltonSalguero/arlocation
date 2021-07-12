@@ -44,7 +44,7 @@ function init() {
     const row_3 = document.createElement("div");
     row_3.classList.add("row")
     var p_ref = document.createElement("p");
-    var t_ref = document.createTextNode("N local: " + (store_detail.ref ? store_detail.ref : ""));
+    var t_ref = document.createTextNode("N local: " + (store_detail.direccion_NroLocal ? store_detail.direccion_NroLocal : ""));
     p_ref.appendChild(t_ref);
     row_3.appendChild(p_ref);
     cont.appendChild(row_3);
@@ -60,7 +60,7 @@ function init() {
     const row_5 = document.createElement("div");
     row_5.classList.add("row")
     var p_ref_3 = document.createElement("p");
-    var t_ref_3 = document.createTextNode("Referencia: " + (store_detail.ref_3 ? store_detail.ref_3 : ""));
+    var t_ref_3 = document.createTextNode("Referencia: " + (store_detail.direccion_Referencia ? store_detail.direccion_Referencia : ""));
     p_ref_3.appendChild(t_ref_3);
     row_5.appendChild(p_ref_3);
     cont.appendChild(row_5);
@@ -80,15 +80,15 @@ function init() {
     p_mobile.appendChild(t_mobile);
     row_7.appendChild(p_mobile);
     cont.appendChild(row_7);
-    /*
+    
     const row_8 = document.createElement("div");
     row_8.classList.add("row")
     var p_mobile = document.createElement("p");
-    var t_mobile = document.createTextNode("Celular: " + store_detail.mobile);
+    var t_mobile = document.createTextNode("Telefono: " + (store_detail.direccionTelefono ? store_detail.direccionTelefono : ""));
     p_mobile.appendChild(t_mobile);
     row_8.appendChild(p_mobile);
     cont.appendChild(row_8);
-
+    /*
     const row_9 = document.createElement("div");
     row_9.classList.add("row")
     var p_mobile = document.createElement("p");

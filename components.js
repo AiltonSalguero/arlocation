@@ -1,24 +1,24 @@
 AFRAME.registerComponent("foo", {
-    init: function() {
+    init: function () {
         console.log(this);
         var store = findStoreById(this.el.id)
-        this.el.addEventListener('touchstart', function() {
+        this.el.addEventListener('touchstart', function () {
             to_store_detail(store);
         }, false);
-        this.el.addEventListener('click', function() {
+        this.el.addEventListener('click', function () {
             to_store_detail(store);
         }, false);
     }
 })
 
 AFRAME.registerComponent("target_arrow", {
-    init: function() {
+    init: function () {
         console.log(this);
     }
 })
 
 AFRAME.registerComponent("store_card", {
-    init: function() {
+    init: function () {
         console.log(this);
         var store = findStoreById(this.el.id)
 
@@ -35,6 +35,7 @@ AFRAME.registerComponent("store_card", {
         let logo = document.createElement("a-image");
         let name = document.createElement("a-text");
         let adress = document.createElement("a-text");
+        let n_local = document.createElement("a-text");
         let ref = document.createElement("a-text");
 
         card.setAttribute("scale", "5 5 5")
@@ -50,29 +51,36 @@ AFRAME.registerComponent("store_card", {
         logo.setAttribute("scale", "1.6 1.6 1.6")
 
 
-        name.setAttribute("value", store.nombresComercial)
+        name.setAttribute("value", store_detail.nombresComercial ? store_detail.nombresComercial : "")
         name.setAttribute("scale", "1 1 1")
         name.setAttribute("position", "-0.4 0 -10")
         name.setAttribute("text", "wrapCount: 30")
-            //name.setAttribute("font", "custom-msdf.json")
+        //name.setAttribute("font", "custom-msdf.json")
 
-        adress.setAttribute("value", store.direccion_Direccion)
+        adress.setAttribute("value", store_detail.direccion_Direccion ? store_detail.direccion_Direccion : "")
         adress.setAttribute("scale", "0.4 0.4 0.4")
         adress.setAttribute("position", "-0.4 -0.4 -10")
         adress.setAttribute("text", "wrapCount: 20")
         adress.setAttribute("text", "height: 1")
-            //adress.setAttribute("font", "custom-msdf.json")
+        //adress.setAttribute("font", "custom-msdf.json")
 
-        ref.setAttribute("value", store.direccionPiso)
+        n_local.setAttribute("value", "N local: " + (store_detail.direccion_NroLocal ? store_detail.direccion_NroLocal : ""))
+        n_local.setAttribute("scale", "0.6 0.6 0.6")
+        n_local.setAttribute("position", "-0.4 -0.8 -10")
+        n_local.setAttribute("text", "wrapCount: 30")
+        //ref.setAttribute("font", "custom-msdf.json")
+
+        ref.setAttribute("value", "Piso: " + (store_detail.direccionPiso ? store_detail.direccionPiso : ""))
         ref.setAttribute("scale", "0.6 0.6 0.6")
         ref.setAttribute("position", "-0.4 -0.8 -10")
         ref.setAttribute("text", "wrapCount: 30")
-            //ref.setAttribute("font", "custom-msdf.json")
+        //ref.setAttribute("font", "custom-msdf.json")
 
         card.appendChild(background)
         card.appendChild(logo)
         card.appendChild(name)
         card.appendChild(adress)
+        card.appendChild(n_local)
         card.appendChild(ref)
         this.el.appendChild(card);
     }

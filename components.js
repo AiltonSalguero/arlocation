@@ -72,7 +72,7 @@ AFRAME.registerComponent("store_card", {
 
         ref.setAttribute("value", "Piso: " + (store_detail.direccionPiso ? store_detail.direccionPiso : ""))
         ref.setAttribute("scale", "0.6 0.6 0.6")
-        ref.setAttribute("position", "-0.4 -0.9 -10")
+        ref.setAttribute("position", "-0.4 -0.95 -10")
         ref.setAttribute("text", "wrapCount: 30")
         //ref.setAttribute("font", "custom-msdf.json")
 

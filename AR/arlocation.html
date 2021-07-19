@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <title>Gamarra AR</title>
+    <link rel="icon" type="image/jpg" href="favicon.jpg"/>
+    <script src='https://aframe.io/releases/1.0.4/aframe.min.js'></script>
+</head>
+
+<body style='margin: 0; overflow: hidden;' id='body' onload="init()">
+    <a-scene vr-mode-ui='enabled: false' cursor="rayOrigin: mouse" renderer='antialias: true; alpha:true'
+        arjs='videoTexture: true; sourceType: webcam; debugUIEnabled: false'>
+        <a-assets id='assets-id'>
+        </a-assets>
+        
+        <a-camera gps-camera rotation-reader> </a-camera>
+    </a-scene>
+</body>
+
+</html>

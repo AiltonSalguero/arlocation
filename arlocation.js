@@ -1,4 +1,4 @@
-const MAX_DISTANT = 7
+const MAX_DISTANT = 10
 
 function findStoreById(propValue) {
     var stores_data_json = localStorage.getItem('stores_data')

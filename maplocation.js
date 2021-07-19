@@ -1,4 +1,4 @@
-const MAX_DISTANT = 7
+const MAX_DISTANT = 10
 
 function to_store_detail(store_detail) {
     console.log(store_detail);
